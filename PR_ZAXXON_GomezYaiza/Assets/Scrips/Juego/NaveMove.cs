@@ -8,7 +8,9 @@ public class NaveMove : MonoBehaviour
     [SerializeField] float deplSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float limitH;
-  
+    [SerializeField] float limitY;
+    [SerializeField] float suelo;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,9 @@ public class NaveMove : MonoBehaviour
         deplSpeed = 10f;
         rotationSpeed = 100f;
         limitH = 18f;
+        limitY = 12f;
+        suelo = 0;
+       
     }
 
     // Update is called once per frame
@@ -33,6 +38,7 @@ public class NaveMove : MonoBehaviour
         float desplR = Input.GetAxis("Rotation");
 
         float posX = transform.position.x;
+        float posY = transform.position.y;
 
         //Variable para restricción
 
@@ -41,12 +47,17 @@ public class NaveMove : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * deplSpeed * desplX, Space.World);
         }
 
+        if ((posY < limitY || desplY < 0f) && (posY > suelo || desplY > 0f))
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * deplSpeed * desplY, Space.World);
+        }
+
 
         //Desplazamientos
 
         //transform.Translate(Vector3.right * Time.deltaTime * deplSpeed * desplX, Space.World);
 
-        transform.Translate(Vector3.up * Time.deltaTime * deplSpeed * desplY, Space.World);
+        //transform.Translate(Vector3.up * Time.deltaTime * deplSpeed * desplY, Space.World);
 
 
         transform.Translate(Vector3.back * Time.deltaTime * deplSpeed * desplZ, Space.World);
