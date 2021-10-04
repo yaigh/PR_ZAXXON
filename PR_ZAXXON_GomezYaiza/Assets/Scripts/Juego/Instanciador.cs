@@ -7,14 +7,32 @@ public class Instanciador : MonoBehaviour
 {
 
     float intervalo;
-    [SerializeField] GameObject columna;
-    [SerializeField] Transform intanciarPos;
+    [SerializeField] GameObject obstaculo;
+    [SerializeField] Transform instanciarPos;
+
+    float desplX = 5f;
+    
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         intervalo = 1f;
-        StartCoroutine("CrearColumnas");
+
+        StartCoroutine("CrearObstaculos");
+
+        Vector3 destPos = instanciarPos.position;
+        Vector3 despl = new Vector3(desplX, 0, 0);
+
+
+        /*for (int n= 0; n < 5; n++)
+        {
+           
+            Instantiate(obstaculo, destPos, Quaternion.identity);
+            destPos = destPos + despl;
+        }
+        */
     }
 
     // Update is called once per frame
@@ -23,11 +41,14 @@ public class Instanciador : MonoBehaviour
         
     }
 
-    IEnumerator CrearColumnas()
+    IEnumerator CrearObstaculos()
     {
         while (true)
         {
-            Instantiate(columna, intanciarPos);
+            float randomX = Random.Range(-10f, 10f);
+            Vector3 newPos = new Vector3(randomX, instanciarPos.position.y, instanciarPos.position.z);
+            Instantiate(obstaculo, newPos, Quaternion.identity);
+
             yield return new WaitForSeconds(intervalo);
         }
     }
