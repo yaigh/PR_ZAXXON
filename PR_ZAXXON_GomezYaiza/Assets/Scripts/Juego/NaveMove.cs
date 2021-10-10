@@ -15,8 +15,8 @@ public class NaveMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deplSpeed = 10f;
-        rotationSpeed = 100f;
+        deplSpeed = 30f;
+        rotationSpeed = 200f;
         limitH = 18f;
         limitY = 12f;
         suelo = 0;
@@ -39,6 +39,7 @@ public class NaveMove : MonoBehaviour
 
         float posX = transform.position.x;
         float posY = transform.position.y;
+        
 
         //Variable para restricción
 
@@ -52,6 +53,7 @@ public class NaveMove : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * deplSpeed * desplY, Space.World);
         }
 
+       
 
         //Desplazamientos
 
