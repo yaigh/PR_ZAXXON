@@ -22,6 +22,8 @@ public class Instanciador : MonoBehaviour
     float limiteD = 0f;
 
     InitGame initGame;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,9 @@ public class Instanciador : MonoBehaviour
         StartCoroutine("CrearObstaculos");
 
         CrearColumnasIniciales();
+
+        float posX = Random.Range(0f, 1f);
+        float posX2 = Random.Range(posX, 10f);
     }
 
     // Update is called once per frame
@@ -103,4 +108,20 @@ public class Instanciador : MonoBehaviour
             Instantiate(obstaculos[0], columnaInicialPos, Quaternion.identity);
         }
     }
+
+    float RandomExclude(float excluir, float rango)
+    {
+        float returnNumber = excluir;
+
+        float numIni = excluir - rango;
+        float numFin = excluir + rango;
+
+        while (returnNumber > numIni && returnNumber < numFin)
+        {
+            returnNumber = Random.Range(0f, 10f);
+        }
+
+        return returnNumber;
+    }
+
 }

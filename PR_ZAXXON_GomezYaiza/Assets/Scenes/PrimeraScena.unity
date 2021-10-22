@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 55de71cad13024b4ca87f4eaffe25e6d, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 104780899}
   - component: {fileID: 104780898}
+  - component: {fileID: 104780900}
+  - component: {fileID: 104780901}
   m_Layer: 0
   m_Name: Nave
   m_TagString: Untagged
@@ -172,6 +174,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &104780900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104780897}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &104780901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104780897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.5, z: 2.07}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &701587171
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +360,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 4edae6d11ad8e124fa7a096b34d6316f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4edae6d11ad8e124fa7a096b34d6316f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a21a2fe4ff8cad43b30d4409eb9fbb0, type: 2}
@@ -435,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 104780899}
-  smoothVelocity: 0
+  smoothVelocity: 0.2
   camaraVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &1134563174
 GameObject:
@@ -463,9 +498,9 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134563174}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 29d0a4fd758a66e4f876fb3d94edee42, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -567,8 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3f12d12fce0094d879d6706d771ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceshipSpeed: 30
-  speedText: {fileID: 0}
+  spaceshipSpeed: 50
 --- !u!4 &1515917441
 Transform:
   m_ObjectHideFlags: 0

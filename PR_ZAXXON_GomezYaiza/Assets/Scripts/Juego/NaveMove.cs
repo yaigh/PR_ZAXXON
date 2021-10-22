@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NaveMove : MonoBehaviour
 {
@@ -11,22 +12,31 @@ public class NaveMove : MonoBehaviour
     [SerializeField] float limitY;
     [SerializeField] float suelo;
 
+    InitGame initGame;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        initGame = GameObject.Find("InitGame").GetComponent<InitGame>();
+
         deplSpeed = 30f;
         rotationSpeed = 200f;
         limitH = 20f;
         limitY = 12f;
         suelo = 0;
-       
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         MoverNave();
+
+        
+
     }
 
 
@@ -39,11 +49,11 @@ public class NaveMove : MonoBehaviour
 
         float posX = transform.position.x;
         float posY = transform.position.y;
-        
+
 
         //Variable para restricción
 
-        if ((posX < limitH || desplX < 0f) && (posX > - limitH || desplX > 0f))
+        if ((posX < limitH || desplX < 0f) && (posX > -limitH || desplX > 0f))
         {
             transform.Translate(Vector3.right * Time.deltaTime * deplSpeed * desplX, Space.World);
         }
@@ -53,7 +63,7 @@ public class NaveMove : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * deplSpeed * desplY, Space.World);
         }
 
-       
+
 
         //Desplazamientos
 
@@ -82,5 +92,15 @@ public class NaveMove : MonoBehaviour
         */
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //print("He chocado con" + other.gameObject.tag);
 
+        if (other.gameObject.tag == "Obstaculo")
+        {
+            initGame.spaceshipSpeed = 0f;
+            SceneManager.LoadScene("PrimeraScena");
+
+        }
+    }
 }
