@@ -8,44 +8,30 @@ public class Instanciador : MonoBehaviour
 
     float intervalo;
 
-    //[SerializeField] GameObject obstaculo;
-    //[SerializeField] GameObject[];
     [SerializeField] Transform instanciarPos;
     [SerializeField] GameObject[] obstaculos;
-    
-    
-    
 
-    float limiteL = -18f;
-    float limiteR = 18f;
+    [SerializeField] float distance;
+  
+    [SerializeField] float posZcolumna1;
+
+    float limiteL = -20f;
+    float limiteR = 20f;
 
     float limiteU = 12f;
     float limiteD = 0f;
 
-
+    InitGame initGame;
     // Start is called before the first frame update
     void Start()
     {
-        intervalo = 1f;
-
+        distance = 30f;
+        posZcolumna1 = 150f;
+        initGame = GameObject.Find("InitGame").GetComponent<InitGame>();
 
         StartCoroutine("CrearObstaculos");
-        /*
-        Vector3 destPos = instanciarPos.position;
-        Vector3 despl = new Vector3(desplX, 0, 0);
-        */
-        
-        //transform.position = new Vector3(0f, 0f, 0f);
 
-        /*for (int n= 0; n < 5; n++)
-        {
-           
-            Instantiate(obstaculo, destPos, Quaternion.identity);
-            destPos = destPos + despl;
-        }
-        */
-
-        
+        CrearColumnasIniciales();
     }
 
     // Update is called once per frame
@@ -56,27 +42,65 @@ public class Instanciador : MonoBehaviour
 
     IEnumerator CrearObstaculos()
     {
-       
 
+        float speed;
         while (true)
         {
-            
-
-            float randomX = Random.Range(limiteL, limiteR);
-            Vector3 newPositionX = new Vector3(randomX, instanciarPos.position.y, instanciarPos.position.z);
+            speed = initGame.spaceshipSpeed;
+            intervalo = distance / speed;
 
             int numAleatorioX = Random.Range(0, obstaculos.Length);
+            int numAleatorioY = Random.Range(0, obstaculos.Length);
+
+            float randomX;
+            float randomY;
+
+            if (obstaculos[numAleatorioX].tag != "pared")
+            {
+                randomX = Random.Range(limiteL, limiteR);
+            }
+            else
+            {
+                randomX = 0f;
+            }
+
+            if (obstaculos[numAleatorioY].tag != "pared")
+            {
+                randomY = Random.Range(limiteU, limiteD);
+            }
+            else
+            {
+                randomY = 0f;
+            }
+
+
+            Vector3 newPositionX = new Vector3(randomX, instanciarPos.position.y, instanciarPos.position.z);
             Instantiate(obstaculos[numAleatorioX], newPositionX, Quaternion.identity);
 
 
-            float randomY = Random.Range(limiteU, limiteD);
+           
             Vector3 newPositionY = new Vector3(instanciarPos.position.x, randomY, instanciarPos.position.z);
-
-            int numAleatorioY = Random.Range(0, obstaculos.Length);
             Instantiate(obstaculos[numAleatorioY], newPositionY, Quaternion.identity);
 
 
             yield return new WaitForSeconds(intervalo);
+        }
+    }
+
+    void CrearColumnasIniciales()
+    {
+
+        float posZ = instanciarPos.position.z;
+        float columnasIniciales = (posZ - posZcolumna1) / distance;
+
+        columnasIniciales = Mathf.Round(columnasIniciales);
+        //print(columnasIniciales);
+
+        for (float n = posZcolumna1; n < posZ; n += distance)
+        {
+            float randomX = Random.Range(limiteL, limiteR);
+            Vector3 columnaInicialPos = new Vector3(randomX, instanciarPos.position.y, n);
+            Instantiate(obstaculos[0], columnaInicialPos, Quaternion.identity);
         }
     }
 }

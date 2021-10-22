@@ -17,7 +17,7 @@ public class NaveMove : MonoBehaviour
     {
         deplSpeed = 30f;
         rotationSpeed = 200f;
-        limitH = 18f;
+        limitH = 20f;
         limitY = 12f;
         suelo = 0;
        

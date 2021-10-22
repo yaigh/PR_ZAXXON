@@ -538,6 +538,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4edae6d11ad8e124fa7a096b34d6316f, type: 3}
   m_PrefabInstance: {fileID: 899236052}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1515917439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515917441}
+  - component: {fileID: 1515917440}
+  m_Layer: 0
+  m_Name: InitGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1515917440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515917439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3f12d12fce0094d879d6706d771ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceshipSpeed: 30
+  speedText: {fileID: 0}
+--- !u!4 &1515917441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515917439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 150}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709200831
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +616,10 @@ MonoBehaviour:
   obstaculos:
   - {fileID: 4586532582714463415, guid: 59ef4ea2a22a75044a0e0dcdca356215, type: 3}
   - {fileID: 1564476383342126563, guid: 9faf569277aba2b40b900c6b250c7ff6, type: 3}
+  - {fileID: 4586532582714463415, guid: 59ef4ea2a22a75044a0e0dcdca356215, type: 3}
+  - {fileID: 1564476383342126563, guid: 9faf569277aba2b40b900c6b250c7ff6, type: 3}
+  distance: 1
+  posZcolumna1: 1
 --- !u!4 &1709200833
 Transform:
   m_ObjectHideFlags: 0

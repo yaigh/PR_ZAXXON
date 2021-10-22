@@ -6,20 +6,23 @@ using UnityEngine.UI;
 public class ColumnaMove : MonoBehaviour
 {
     float speed;
+    [SerializeField] GameObject initObject;
+    InitGame initGame;
 
    
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 20f;
+        initObject = GameObject.Find("InitGame");
+        initGame = initObject.GetComponent<InitGame>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        speed = initGame.spaceshipSpeed;
         transform.Translate(Vector3.back * Time.deltaTime * speed);
 
         float posZ = transform.position.z;
