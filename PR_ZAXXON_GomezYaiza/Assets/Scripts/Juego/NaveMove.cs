@@ -12,20 +12,30 @@ public class NaveMove : MonoBehaviour
     [SerializeField] float limitY;
     [SerializeField] float suelo;
 
+    [SerializeField] Transform cannon;
+    //[SerializeField] Transform navePos;
+    [SerializeField] GameObject bolaPlayer;
+
+    
     InitGame initGame;
-    
-    
+    /*
+    [SerializeField] GameObject bala;
+    [SerializeField] Transform cannon;
+    */
+
 
     // Start is called before the first frame update
     void Start()
     {
         initGame = GameObject.Find("InitGame").GetComponent<InitGame>();
+        deplSpeed = 25f;
+        rotationSpeed = 150f;
 
-        deplSpeed = 30f;
-        rotationSpeed = 200f;
         limitH = 20f;
         limitY = 12f;
         suelo = 0;
+
+
 
 
     }
@@ -35,7 +45,7 @@ public class NaveMove : MonoBehaviour
     {
         MoverNave();
 
-        
+        //     Disparar();
 
     }
 
@@ -64,6 +74,8 @@ public class NaveMove : MonoBehaviour
         }
 
 
+
+        transform.Rotate(0f, 0f, desplR * Time.deltaTime * rotationSpeed);
 
         //Desplazamientos
 
@@ -96,11 +108,25 @@ public class NaveMove : MonoBehaviour
     {
         //print("He chocado con" + other.gameObject.tag);
 
-        if (other.gameObject.tag == "Obstaculo")
+        if (other.gameObject.layer == 6)
         {
             initGame.spaceshipSpeed = 0f;
             SceneManager.LoadScene("PrimeraScena");
 
         }
     }
+
+   void Disparar()
+    {
+      
+
+        if (Input.GetKeyDown("space"))
+        {
+            //print("Disparando");
+            Instantiate(bolaPlayer, cannon);
+            
+   
+        }
+    }
+   
 }

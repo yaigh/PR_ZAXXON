@@ -35,14 +35,33 @@ public class Instanciador : MonoBehaviour
 
         CrearColumnasIniciales();
 
-        float posX = Random.Range(0f, 1f);
+        /*
+        // Excluir número aleatorio
+        float posX = Random.Range(0f,5f);
         float posX2 = Random.Range(posX, 10f);
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    float RandomExclude(float excluir, float rango)
+    {
+        float returnNumber = excluir;
+
+        float numIni = excluir - rango;
+        float numFin = excluir + rango;
+
+        while (returnNumber > numIni && returnNumber < numFin)
+        {
+            returnNumber = Random.Range(0f, 5f);
+            float returnNumber2 = Random.Range(returnNumber, 10f);
+        }
+
+        return returnNumber;
     }
 
     IEnumerator CrearObstaculos()
@@ -91,6 +110,7 @@ public class Instanciador : MonoBehaviour
             yield return new WaitForSeconds(intervalo);
         }
     }
+    
 
     void CrearColumnasIniciales()
     {
@@ -109,19 +129,5 @@ public class Instanciador : MonoBehaviour
         }
     }
 
-    float RandomExclude(float excluir, float rango)
-    {
-        float returnNumber = excluir;
-
-        float numIni = excluir - rango;
-        float numFin = excluir + rango;
-
-        while (returnNumber > numIni && returnNumber < numFin)
-        {
-            returnNumber = Random.Range(0f, 10f);
-        }
-
-        return returnNumber;
-    }
-
+    
 }

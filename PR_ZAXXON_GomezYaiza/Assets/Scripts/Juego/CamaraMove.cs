@@ -11,7 +11,7 @@ public class CamaraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        smoothVelocity = 0.1f;
+        smoothVelocity = 0.3f;
         camaraVelocity = Vector3.zero;
     }
 
@@ -20,5 +20,7 @@ public class CamaraMove : MonoBehaviour
     {
         Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y + 5, player.position.z - 10);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref camaraVelocity, smoothVelocity);
+
+       //transform.LookAt(player);
     }
 }
