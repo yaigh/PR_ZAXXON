@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BalasDisparos : MonoBehaviour
 {
-    [SerializeField] GameObject bolaDestroy;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +16,19 @@ public class BalasDisparos : MonoBehaviour
     {
         
         transform.Translate(Vector3.forward * Time.deltaTime * 15f);
+        
+        if (transform.position.z > 80)
+        {
+            Destroy(gameObject);
+        }
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 6)
         {
             Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
-}s
+}

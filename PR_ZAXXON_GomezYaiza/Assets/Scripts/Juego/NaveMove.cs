@@ -11,10 +11,11 @@ public class NaveMove : MonoBehaviour
     [SerializeField] float limitH;
     [SerializeField] float limitY;
     [SerializeField] float suelo;
-
-    [SerializeField] Transform cannon;
-    //[SerializeField] Transform navePos;
-    [SerializeField] GameObject bolaPlayer;
+    
+    [SerializeField] Transform navePos;
+    //[SerializeField] Transform cannon;
+    [SerializeField] GameObject bola;
+    //[SerializeField] BalasDisparos bolaPlayer;
 
     
     InitGame initGame;
@@ -35,9 +36,6 @@ public class NaveMove : MonoBehaviour
         limitY = 12f;
         suelo = 0;
 
-
-
-
     }
 
     // Update is called once per frame
@@ -45,7 +43,7 @@ public class NaveMove : MonoBehaviour
     {
         MoverNave();
 
-        //     Disparar();
+        Disparar();
 
     }
 
@@ -107,6 +105,8 @@ public class NaveMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //print("He chocado con" + other.gameObject.tag);
+        
+
 
         if (other.gameObject.layer == 6)
         {
@@ -116,17 +116,20 @@ public class NaveMove : MonoBehaviour
         }
     }
 
-   void Disparar()
+  void Disparar()
     {
-      
+       
+        Vector3 destPost = new Vector3(navePos.position.x, navePos.position.y, navePos.position.z);
 
         if (Input.GetKeyDown("space"))
         {
-            //print("Disparando");
-            Instantiate(bolaPlayer, cannon);
+            Instantiate(bola, destPost, Quaternion.identity);
             
-   
         }
+        
+        
+    
     }
+  
    
 }
