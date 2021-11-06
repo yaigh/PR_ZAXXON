@@ -41,8 +41,13 @@ public class NaveMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (initGame.alive)
+        {
+            MoverNarve();
+        }
+        */
         MoverNave();
-
         Disparar();
 
     }
@@ -110,7 +115,8 @@ public class NaveMove : MonoBehaviour
 
         if (other.gameObject.layer == 6)
         {
-            initGame.spaceshipSpeed = 0f;
+            //Menu: initGame.SendMessage("Chocar", other.gameObject);
+
             SceneManager.LoadScene("PrimeraScena");
 
         }
@@ -118,8 +124,8 @@ public class NaveMove : MonoBehaviour
 
   void Disparar()
     {
-       
-        Vector3 destPost = new Vector3(navePos.position.x, navePos.position.y, navePos.position.z);
+
+        Vector3 destPost = navePos.position;
 
         if (Input.GetKeyDown("space"))
         {
