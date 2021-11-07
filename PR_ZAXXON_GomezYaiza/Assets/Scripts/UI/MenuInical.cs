@@ -8,23 +8,15 @@ public class MenuInical : MonoBehaviour
 {
     public void IniciarHighScore()
     {
-        
-       SceneManager.LoadScene(3);
-        
+        SceneManager.LoadScene(3);
     }
     public void IniciarJuego()
     {
-        
-       SceneManager.LoadScene(2);
-        
+       SceneManager.LoadScene(1);
     }
     public void IniciarConfig()
     {
-        
-       SceneManager.LoadScene(1);
-       
-
-
+       SceneManager.LoadScene(2);
     }
     public void MenuInicio()
     {

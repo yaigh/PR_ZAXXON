@@ -78,7 +78,7 @@ public class NaveMove : MonoBehaviour
 
 
 
-        transform.Rotate(0f, 0f, desplR * Time.deltaTime * rotationSpeed);
+        //transform.Rotate(0f, 0f, desplR * Time.deltaTime * rotationSpeed);
 
         //Desplazamientos
 
