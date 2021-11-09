@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaHighScoreUI.unity
     guid: bfe9e705446b0ae4a8f68866f28a74f9
+  - enabled: 1
+    path: Assets/Scenes/PantallaHudUI.unity
+    guid: e0a12a1ee7804c9428589c27431e6f5b
   m_configObjects: {}

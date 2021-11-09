@@ -127,7 +127,7 @@ public class NaveMove : MonoBehaviour
 
         Vector3 destPost = navePos.position;
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bola, destPost, Quaternion.identity);
             

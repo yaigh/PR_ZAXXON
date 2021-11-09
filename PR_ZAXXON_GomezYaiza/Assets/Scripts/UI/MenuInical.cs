@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuInical : MonoBehaviour
 {
+    public void IniciarHud()
+    {
+        SceneManager.LoadScene(4);
+    }
     public void IniciarHighScore()
     {
         SceneManager.LoadScene(3);
