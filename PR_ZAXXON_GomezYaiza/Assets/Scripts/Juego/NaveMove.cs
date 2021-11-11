@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class NaveMove : MonoBehaviour
@@ -13,17 +14,15 @@ public class NaveMove : MonoBehaviour
     [SerializeField] float suelo;
     
     [SerializeField] Transform navePos;
-    //[SerializeField] Transform cannon;
     [SerializeField] GameObject bola;
-    //[SerializeField] BalasDisparos bolaPlayer;
+    
 
     
     InitGame initGame;
-    /*
-    [SerializeField] GameObject bala;
-    [SerializeField] Transform cannon;
-    */
+    
 
+    [SerializeField] Image lifesImage;
+    [SerializeField] Sprite[] lifesSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,11 @@ public class NaveMove : MonoBehaviour
         limitH = 20f;
         limitY = 12f;
         suelo = 0;
-
+        
+        
+        int lifes = GameManager.playerLifes;
+        lifesImage.sprite = lifesSprite[lifes];
+        
     }
 
     // Update is called once per frame
@@ -50,6 +53,7 @@ public class NaveMove : MonoBehaviour
         MoverNave();
         Disparar();
 
+        
     }
 
 
@@ -109,15 +113,22 @@ public class NaveMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("He chocado con" + other.gameObject.tag);
         
-
-
         if (other.gameObject.layer == 6)
         {
-            //Menu: initGame.SendMessage("Chocar", other.gameObject);
+            GameManager.playerLifes--;
 
-            SceneManager.LoadScene("PrimeraScena");
+            if (GameManager.playerLifes ==0)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                int currentScene = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(currentScene);
+            }
+
+            
 
         }
     }

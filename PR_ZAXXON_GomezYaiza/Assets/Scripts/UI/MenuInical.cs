@@ -16,6 +16,7 @@ public class MenuInical : MonoBehaviour
     }
     public void IniciarJuego()
     {
+       GameManager.playerLifes = 3;
        SceneManager.LoadScene(1);
     }
     public void IniciarConfig()
