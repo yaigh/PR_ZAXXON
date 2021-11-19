@@ -27,7 +27,7 @@ public class Instanciador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        distance = 30f;
+        distance = 15f;
         posZcolumna1 = 150f;
         initGame = GameObject.Find("InitGame").GetComponent<InitGame>();
 

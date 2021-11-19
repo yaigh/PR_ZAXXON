@@ -35,10 +35,16 @@ public class NaveMove : MonoBehaviour
         limitY = 12f;
         suelo = 0;
         
-        
+        if(GameManager.playerLifes <= 0)
+        {
+            GameManager.playerLifes = 3;
+        }
+            
         int lifes = GameManager.playerLifes;
         lifesImage.sprite = lifesSprite[lifes];
-        
+
+
+
     }
 
     // Update is called once per frame
