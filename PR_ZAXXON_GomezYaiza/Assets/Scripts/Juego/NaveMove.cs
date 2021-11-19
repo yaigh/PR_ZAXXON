@@ -8,7 +8,7 @@ public class NaveMove : MonoBehaviour
 {
 
     [SerializeField] float deplSpeed;
-    [SerializeField] float rotationSpeed;
+    //[SerializeField] float rotationSpeed;
     [SerializeField] float limitH;
     [SerializeField] float limitY;
     [SerializeField] float suelo;
@@ -31,7 +31,7 @@ public class NaveMove : MonoBehaviour
     {
         initGame = GameObject.Find("InitGame").GetComponent<InitGame>();
         deplSpeed = 25f;
-        rotationSpeed = 150f;
+        //rotationSpeed = 150f;
 
         limitH = 20f;
         limitY = 12f;
@@ -154,7 +154,9 @@ public class NaveMove : MonoBehaviour
 
         if (GameManager.playerLifes == 0)
         {
-            SceneManager.LoadSceneAsync(4);
+            StartCoroutine("TiempoEspera");
+
+            
         }
         else
         {
@@ -166,6 +168,12 @@ public class NaveMove : MonoBehaviour
             //SceneManager.LoadScene(currentScene);
         }
     }
-  
+  IEnumerator TiempoEspera()
+    {
+        
+        initGame.spaceshipSpeed = 0f;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(4);
+    }
    
 }
