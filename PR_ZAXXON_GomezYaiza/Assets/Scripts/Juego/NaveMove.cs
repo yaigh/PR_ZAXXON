@@ -120,7 +120,7 @@ public class NaveMove : MonoBehaviour
 
             if (GameManager.playerLifes ==0)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(4);
             }
             else
             {
@@ -138,7 +138,7 @@ public class NaveMove : MonoBehaviour
 
         Vector3 destPost = navePos.position;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bola, destPost, Quaternion.identity);
             

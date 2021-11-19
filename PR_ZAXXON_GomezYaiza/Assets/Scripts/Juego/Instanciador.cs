@@ -48,6 +48,7 @@ public class Instanciador : MonoBehaviour
         
     }
 
+
     float RandomExclude(float excluir, float rango)
     {
         float returnNumber = excluir;
@@ -57,8 +58,7 @@ public class Instanciador : MonoBehaviour
 
         while (returnNumber > numIni && returnNumber < numFin)
         {
-            returnNumber = Random.Range(0f, 5f);
-            float returnNumber2 = Random.Range(returnNumber, 10f);
+            returnNumber = Random.Range(0f, 10f);
         }
 
         return returnNumber;

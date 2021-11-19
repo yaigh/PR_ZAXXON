@@ -5,7 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuInical : MonoBehaviour
-{
+{  
+    
+    public void LoadScene(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
+    public void IniciarJuego()
+    {
+        GameManager.playerLifes = 3;
+        SceneManager.LoadScene(1);
+    }
+
+
+    /*
     public void IniciarHud()
     {
         SceneManager.LoadScene(4);
@@ -27,4 +40,8 @@ public class MenuInical : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    */
+
+
+
 }
