@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InitGame : MonoBehaviour
 {
     public float spaceshipSpeed = 30f;
+    public bool alive;
 
     //[SerializeField] Text speedText;
 

@@ -15,8 +15,8 @@ public class Instanciador : MonoBehaviour
   
     [SerializeField] float posZcolumna1;
 
-    float limiteL = -20f;
-    float limiteR = 20f;
+    float limiteL = -30f;
+    float limiteR = 30f;
 
     float limiteU = 12f;
     float limiteD = 0f;

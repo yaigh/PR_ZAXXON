@@ -11,7 +11,7 @@ public class CamaraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        smoothVelocity = 0.3f;
+        smoothVelocity = 0.1f;
         camaraVelocity = Vector3.zero;
     }
 

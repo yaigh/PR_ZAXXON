@@ -24,6 +24,8 @@ public class NaveMove : MonoBehaviour
     [SerializeField] Image lifesImage;
     [SerializeField] Sprite[] lifesSprite;
 
+    int lifes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +36,13 @@ public class NaveMove : MonoBehaviour
         limitH = 20f;
         limitY = 12f;
         suelo = 0;
-        
+       
         if(GameManager.playerLifes <= 0)
         {
-            GameManager.playerLifes = 3;
+            SceneManager.LoadScene(0);
         }
             
-        int lifes = GameManager.playerLifes;
+        lifes = GameManager.playerLifes;
         lifesImage.sprite = lifesSprite[lifes];
 
 
@@ -100,7 +102,10 @@ public class NaveMove : MonoBehaviour
         transform.Translate(Vector3.back * Time.deltaTime * deplSpeed * desplZ, Space.World);
 
 
-        transform.Rotate(0f, 0f, desplR * Time.deltaTime * rotationSpeed);
+        //transform.Rotate(0f, 0f, desplR * Time.deltaTime * rotationSpeed);
+
+        transform.rotation = Quaternion.Euler(desplY * -30, 0, desplX * -30);
+
 
         //Variable para restricción
 
@@ -122,19 +127,8 @@ public class NaveMove : MonoBehaviour
         
         if (other.gameObject.layer == 6)
         {
-            GameManager.playerLifes--;
-
-            if (GameManager.playerLifes ==0)
-            {
-                SceneManager.LoadSceneAsync(4);
-            }
-            else
-            {
-                int currentScene = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene(currentScene);
-            }
-
-            
+            Chocar(other.gameObject);
+                    
 
         }
     }
@@ -152,6 +146,25 @@ public class NaveMove : MonoBehaviour
         
         
     
+    }
+
+    void Chocar(GameObject otro)
+    {
+        GameManager.playerLifes--;
+
+        if (GameManager.playerLifes == 0)
+        {
+            SceneManager.LoadSceneAsync(4);
+        }
+        else
+        {
+            lifes = GameManager.playerLifes;
+            lifesImage.sprite = lifesSprite[lifes];
+            initGame.spaceshipSpeed = 30f;
+            Destroy(otro);
+            //int currentScene = SceneManager.GetActiveScene().buildIndex;
+            //SceneManager.LoadScene(currentScene);
+        }
     }
   
    
