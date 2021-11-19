@@ -120,7 +120,7 @@ public class NaveMove : MonoBehaviour
 
             if (GameManager.playerLifes ==0)
             {
-                SceneManager.LoadScene(4);
+                SceneManager.LoadSceneAsync(4);
             }
             else
             {
