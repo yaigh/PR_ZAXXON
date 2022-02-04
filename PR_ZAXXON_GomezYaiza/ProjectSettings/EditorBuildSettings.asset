@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PantallaMenuInicioUI.unity
     guid: a47153fd90579a744b8818f9c14d08ee
   - enabled: 1
-    path: Assets/Scenes/PrimeraScena.unity
+    path: Assets/Scenes/PrimeraScena_Juego.unity
     guid: 63284a15b3121e54f9fb3bbce161c0a8
   - enabled: 1
     path: Assets/Scenes/PantallaConfiguracionUI.unity
