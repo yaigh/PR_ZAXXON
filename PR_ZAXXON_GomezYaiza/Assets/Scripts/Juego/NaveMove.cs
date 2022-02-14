@@ -71,6 +71,7 @@ public class NaveMove : MonoBehaviour
         float desplY = Input.GetAxis("Vertical");
         float desplZ = Input.GetAxis("Profundidad");
         float desplR = Input.GetAxis("Rotation");
+        
 
         float posX = transform.position.x;
         float posY = transform.position.y;
@@ -135,10 +136,10 @@ public class NaveMove : MonoBehaviour
 
   void Disparar()
     {
-
+        
         Vector3 destPost = navePos.position;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bola, destPost, Quaternion.identity);
             
