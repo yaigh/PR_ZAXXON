@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+
+    public static float score;
+    [SerializeField] Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +18,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        score += 1 * Time.deltaTime;
+        scoreText.text = "SCORE: " + Mathf.Round(score);
     }
 }
