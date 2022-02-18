@@ -19,7 +19,7 @@ public class Instanciador : MonoBehaviour
     float limiteR = 30f;
 
     float limiteU = 12f;
-    float limiteD = 0f;
+    float limiteD = 3f;
 
     InitGame initGame;
 
