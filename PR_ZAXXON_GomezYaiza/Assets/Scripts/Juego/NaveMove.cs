@@ -61,7 +61,10 @@ public class NaveMove : MonoBehaviour
         MoverNave();
         Disparar();
 
-        
+        if (Input.GetButtonDown("Fire2"))
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 
 
@@ -170,11 +173,11 @@ public class NaveMove : MonoBehaviour
         }
     }
   IEnumerator TiempoEspera()
-    {
+  {
         
         initGame.spaceshipSpeed = 0f;
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(4);
-    }
+  }
    
 }

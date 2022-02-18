@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaGameOverUI.unity
     guid: ed62ff5ab77b64b4c97929961c09f4a8
+  - enabled: 1
+    path: Assets/Scenes/PantallaPausa.unity
+    guid: 6dc34f83470342f46befb65663b97fa3
   m_configObjects: {}
