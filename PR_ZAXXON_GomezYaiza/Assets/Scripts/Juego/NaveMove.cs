@@ -26,6 +26,9 @@ public class NaveMove : MonoBehaviour
 
     int lifes;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip disparo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,11 @@ public class NaveMove : MonoBehaviour
         lifes = GameManager.playerLifes;
         lifesImage.sprite = lifesSprite[lifes];
 
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 1f;
+
+
+        
 
 
     }
@@ -145,7 +153,7 @@ public class NaveMove : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bola, destPost, Quaternion.identity);
-            
+            audioSource.PlayOneShot(disparo, 1f);
         }
         
         
