@@ -18,7 +18,16 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score += 1 * Time.deltaTime;
-        scoreText.text = "SCORE: " + Mathf.Round(score);
+       
+        if (GameManager.playerLifes <= 0)
+        {
+            score = 0f;
+        }
+        else
+        {
+            score += 1 * Time.deltaTime;
+            scoreText.text = "SCORE: " + Mathf.Round(score);
+        }
+
     }
 }

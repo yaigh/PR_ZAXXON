@@ -29,6 +29,8 @@ public class NaveMove : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip disparo;
 
+    [SerializeField] Renderer materialAgua;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +54,8 @@ public class NaveMove : MonoBehaviour
         audioSource.volume = 1f;
 
 
-        
+        materialAgua.material.SetFloat("Vector1_50b60d7ab20c41c194679adaac9c6ddb", -2);
+
 
 
     }
@@ -167,7 +170,8 @@ public class NaveMove : MonoBehaviour
         if (GameManager.playerLifes == 0)
         {
             StartCoroutine("TiempoEspera");
-
+            //Paro el agua
+            materialAgua.material.SetFloat("Vector1_50b60d7ab20c41c194679adaac9c6ddb", 0);
             
         }
         else
@@ -184,7 +188,7 @@ public class NaveMove : MonoBehaviour
   {
         
         initGame.spaceshipSpeed = 0f;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(4);
   }
    
