@@ -31,6 +31,7 @@ public class NaveMove : MonoBehaviour
 
     AudioSource audioSource;
     [SerializeField] AudioClip disparo;
+    [SerializeField] AudioClip explosionAudio;
 
     [SerializeField] Renderer materialAgua;
 
@@ -175,6 +176,7 @@ public class NaveMove : MonoBehaviour
             StartCoroutine("TiempoEspera");
             //Paro el agua
             materialAgua.material.SetFloat("Vector1_50b60d7ab20c41c194679adaac9c6ddb", 0);
+            audioSource.PlayOneShot(explosionAudio, 1f);
             Instantiate(explosion, navePos.position, Quaternion.identity);
             naveObject.SetActive(false);
         }

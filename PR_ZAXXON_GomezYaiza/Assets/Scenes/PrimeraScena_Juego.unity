@@ -161,6 +161,8 @@ MonoBehaviour:
   suelo: 0
   navePos: {fileID: 597274550}
   bola: {fileID: 4845408644224890391, guid: 9dba6f403b5fd534eaa13d36dca73e03, type: 3}
+  explosion: {fileID: 6972526486817423129, guid: 0cdfcd45e854cf84e9c98ffe39296921, type: 3}
+  naveObject: {fileID: 919132148845542789}
   lifesImage: {fileID: 1875395991}
   lifesSprite:
   - {fileID: -2950785800762790482, guid: 3b5f8d11f53f81f4ca39dcbd2fc51bc1, type: 3}
@@ -168,6 +170,7 @@ MonoBehaviour:
   - {fileID: -2950785800762790482, guid: 3b5f8d11f53f81f4ca39dcbd2fc51bc1, type: 3}
   - {fileID: 5365088888117324407, guid: 3b5f8d11f53f81f4ca39dcbd2fc51bc1, type: 3}
   disparo: {fileID: 8300000, guid: 816141bfe95260c4da45325975c041c3, type: 3}
+  explosionAudio: {fileID: 8300000, guid: c1f8c36ebdb20024ea8a59ec457d582c, type: 3}
   materialAgua: {fileID: 1134563176}
 --- !u!4 &104780899
 Transform:
