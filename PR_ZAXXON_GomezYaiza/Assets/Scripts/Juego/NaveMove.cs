@@ -15,9 +15,12 @@ public class NaveMove : MonoBehaviour
     
     [SerializeField] Transform navePos;
     [SerializeField] GameObject bola;
-    
 
-    
+    [SerializeField] GameObject explosion;
+    [SerializeField] GameObject naveObject;
+
+
+
     InitGame initGame;
     
 
@@ -56,7 +59,7 @@ public class NaveMove : MonoBehaviour
 
         materialAgua.material.SetFloat("Vector1_50b60d7ab20c41c194679adaac9c6ddb", -2);
 
-
+        naveObject.SetActive(true);
 
     }
 
@@ -172,7 +175,8 @@ public class NaveMove : MonoBehaviour
             StartCoroutine("TiempoEspera");
             //Paro el agua
             materialAgua.material.SetFloat("Vector1_50b60d7ab20c41c194679adaac9c6ddb", 0);
-            
+            Instantiate(explosion, navePos.position, Quaternion.identity);
+            naveObject.SetActive(false);
         }
         else
         {
