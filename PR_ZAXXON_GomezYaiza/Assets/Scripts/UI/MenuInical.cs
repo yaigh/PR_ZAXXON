@@ -16,7 +16,11 @@ public class MenuInical : MonoBehaviour
         GameManager.playerLifes = 3;
         SceneManager.LoadScene(1);
     }
-
+    public void Salir()
+    {
+        
+        Application.Quit();
+    }
 
     /*
     public void IniciarHud()
